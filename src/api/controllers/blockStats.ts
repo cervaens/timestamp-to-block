@@ -24,9 +24,16 @@ export const getBlockStats = async (req: Request, res: Response) => {
   try {
     // Here we dont wait as it might take a long time for an API response
     data = await IBlockNumberTimestamp.getClosestBlockNumber(targetTS);
-    res.status(200).json(data); //.send(`Closest block is ${JSON.stringify(data)}`);
-  } catch (err) {
+    res.status(200).json(data);
+  } catch (err: unknown) {
+    let message = `Internal error: `;
     console.log(err);
-    res.status(500).send(`Internal error when performing calculations`);
+
+    if (err instanceof Error) {
+      message += `${err.message}`;
+    } else {
+      message += `Unexpected error`;
+    }
+    res.status(500).send(message);
   }
 };
