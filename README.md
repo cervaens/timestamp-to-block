@@ -29,8 +29,8 @@ Create a .env file based on .env.example and replace xyz by real values
 npm run start
 ```
 
-The API provides one endpoint in "http://localhost:3000/blocks-stats" where a timestamp needs to be provided in the epoch format.
-Example: "http://localhost:3000/blocks-stats?timestamp=1643726519"
+The API provides one endpoint in "http://localhost:3000/block-stats" where a timestamp needs to be provided in the epoch format.
+Example: "http://localhost:3000/block-stats?timestamp=1643726519"
 
 ## Lint
 
