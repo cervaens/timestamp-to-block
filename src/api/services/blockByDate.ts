@@ -13,7 +13,9 @@ interface IBlockNumberTimestamp {
 class BlockNumberTimestamp implements IBlockNumberTimestamp {
   private lowestTS = 1438269988;
 
-  public async getClosestBlockNumber(targetTimestamp: number) {
+  public async getClosestBlockNumber(
+    targetTimestamp: number
+  ): Promise<IBlockData> {
     let averageBlockTime = 18;
     let nrBlockchainRequests = 0;
 
@@ -76,7 +78,7 @@ class BlockNumberTimestamp implements IBlockNumberTimestamp {
         nrBlockchainRequests += 1;
       }
 
-      // adapting the avg time and leave it like that when we have passed the block
+      // adapting the avg time unless we're really close to the wanted block
       if (decreaseBlocks > 1 || decreaseBlocks < -1) {
         averageBlockTime =
           (refTimestamp - Number(block.timestamp)) / decreaseBlocks;
