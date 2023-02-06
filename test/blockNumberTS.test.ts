@@ -21,22 +21,22 @@ describe("Main test", () => {
     expect(result.timestamp).toBe(1478269987);
   });
 
-  it.skip("testing TS close to block 1", async () => {
+  it("testing TS close to block 1", async () => {
     const result = await blockNumberTimestamp.getBlockNumberPerTS(1438269988);
     expect(result.blockNumber).toBe(2);
   });
 
-  it.skip("testing TS in mid zone", async () => {
-    const result = await blockNumberTimestamp.getBlockNumberPerTS(1538269988);
-    expect(result.blockNumber).toBe(6424455);
+  it("testing TS in mid zone", async () => {
+    const result = await blockNumberTimestamp.getBlockNumberPerTS(1578269988);
+    expect(result.blockNumber).toBe(9223595);
   });
 
-  it.skip("testing another TS in mid zone", async () => {
+  it("testing another TS in mid zone", async () => {
     const result = await blockNumberTimestamp.getBlockNumberPerTS(1608269988);
     expect(result.blockNumber).toBe(11475292);
   });
 
-  it.skip("testing TS close to now", async () => {
+  it("testing TS close to now", async () => {
     const now = new Date().getTime();
     const result = await blockNumberTimestamp.getBlockNumberPerTS(
       Math.floor(now / 1000) - 200
@@ -44,7 +44,7 @@ describe("Main test", () => {
     expect(result).toBeDefined;
   });
 
-  it.skip("testing Date in the future", async () => {
+  it("testing Date in the future", async () => {
     const now = new Date().getTime();
     await blockNumberTimestamp
       .getBlockNumberPerTS(Math.floor(now / 1000))
