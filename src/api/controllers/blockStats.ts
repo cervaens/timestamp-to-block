@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import IBlockNumberTimestamp from "../services/blockByDate";
+import { provider } from "../../index";
+import BlockNumberTimestamp from "../services/blockByDate";
 
 /**
  * Express function that gets logs from a range of blocks
@@ -22,8 +23,9 @@ export const getBlockStats = async (req: Request, res: Response) => {
   let data;
 
   try {
-    // Here we dont wait as it might take a long time for an API response
-    data = await IBlockNumberTimestamp.getClosestBlockNumber(targetTS);
+    const blockNumberTimestamp = new BlockNumberTimestamp(provider);
+
+    data = await blockNumberTimestamp.getBlockNumberPerTS(targetTS);
     res.status(200).json(data);
   } catch (err: unknown) {
     let message = `Internal error: `;

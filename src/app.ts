@@ -1,6 +1,9 @@
 import express, { Application, Request, Response, NextFunction } from "express";
 import { Routes } from "./api/routes";
 
+/**
+ * Main express class
+ */
 class App {
   public app: Application;
 
