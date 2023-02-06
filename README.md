@@ -34,7 +34,7 @@ Create a .env file based on .env.example and replace xyz by real values
 npm run start
 ```
 
-You can user swagger UI to use the app in "http://localhost:3000/api-docs/"
+You can use the swagger UI to try the app in "http://localhost:3000/api-docs/"
 
 The API provides one endpoint in "http://localhost:3000/block-stats" where a timestamp needs to be provided in the epoch format.
 
