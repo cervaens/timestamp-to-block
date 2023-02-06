@@ -62,7 +62,7 @@ class BlockNumberTimestamp implements IBlockNumberTimestamp {
           ? this.avgBlockFromEnd
           : this.avgBlockFromStart,
       errorPct: 2,
-      samples: 24,
+      samples: 23,
     };
 
     // Main loop which will get block samples in each cycle

@@ -1,0 +1,73 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Given a timestamp in seconds, it returns the closest ethereum block number that was created right after the timestamp.",
+        "version": "1.0.0",
+        "title": "Timestamp to Block",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "email": "nuno.cervaens@gmail.com"
+        }
+    },
+    "host": "localhost:3000",
+
+    "schemes": ["http"],
+    "paths": {
+        "/block-stats": {
+            "get": {
+                "tags": ["Block-stats"],
+                "summary": "Timestamp to Block",
+                "description": "Given a timestamp in seconds, it returns the closest ethereum block number that was created right after the timestamp.",
+                "operationId": "getBlockStats",
+                "produces": ["text/html"],
+                "parameters": [
+                    {
+                        "name": "timestamp",
+                        "in": "query",
+                        "description": "Timestamp in seconds to calculate the closest block",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "required": true,
+                            "type": "object",
+                            "$ref": "#/definitions/Result",
+                            "examples": {
+                                "blockNumber": 1538269988,
+                                "nrBulkCalls": 2
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "An error has occured"
+                    }
+                }
+            }
+        }
+
+    },
+    "definitions": {
+        "Result": {
+            "type": "object",
+            "properties": {
+                "blockNumber": {
+                    "type": "number",
+                    "example": "1538269988"
+                },
+                "nrBulkCalls": {
+                    "type": "number",
+                    "example": "2"
+                }
+            }
+        }
+
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    }
+}
