@@ -4,6 +4,8 @@ Given a timestamp in seconds, it returns the closest ethereum block number that 
 
 ## How it works
 
+> Using here a "carpet-bombing" algorithm.
+>
 > The algorithm starts by assuming average block build times, depending if the timestamp is closer to block 1 timestamp or latest block timestamp.
 >
 > So using one of the edge blocks as the reference block (RB), it estimates how many blocks it will have to move from that RB to reach closer to the wanted block (WB), that will define an estimated block (EB).
